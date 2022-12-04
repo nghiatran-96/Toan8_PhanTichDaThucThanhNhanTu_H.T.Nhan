@@ -1,0 +1,1757 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>Phân tích đa thức thành nhân tử - Trường PTDTBT THCS Hướng Phùng - Hướng Hóa - Quảng Trị</title>
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <link rel='stylesheet' type='text/css' href='css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='css/jquery-ui.css'>    <link rel='stylesheet' type='text/css' href='css/jqmath.css'></head>
+<body>
+    <div id='container'>
+        <div id='mainContent'>
+            <div id='leftMainContent'>
+                <!-- Confirm Question One Page MessageBox -->
+                <div id='ConfirmAnswerRight_OnePage_Message' class='DraggablePanel'>
+                    <div id='ConfirmAnswerRight_OnePage_Message_Header'>
+                        <p class='QuestionResultPanelHeader_Content'> Thông báo </p><img class='QuestionResultPanelHeader_btnClose' src='images/btnClose.png'>
+                    </div>
+                    <div id='ConfirmAnswerRight_OnePage_Content'>
+                        <img id='ConfirmAnswerRight_OnePage_Content_IMG' src='images/button/Question/messageOK.png'>
+                        <div id='ConfirmAnswerRight_OnePage_Content_Content'>Đồng ý</div>
+                        <div id='ConfirmAnswerRight_OnePage_Content_btnAccept'>Đồng ý</div>
+                    </div>
+                </div>
+                <!-- End Confirm Question One Page MessageBox -->
+                <!-- Result Panel -->
+                <div id='QuestionResultPanel' class='DraggablePanel'>
+                    <div class='QuestionResultPanelHeader'>
+                        <p class='QuestionResultPanelHeader_Content'> Thông báo </p>
+                        <img class='QuestionResultPanelHeader_btnClose' src='images/btnClose.png'>
+                    </div>
+                    <div class='QuestionResultPanelContent'>
+                        <div class='QuestionResultPanelContent_Top'>
+                            <div class='QuestionResultPanelContent_Top_Left'>
+                                <p class='QuestionResultPanelContent_Top_Text'> Nhóm câu hỏi: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Tổng số câu: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Số câu đúng: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Số điểm / Tổng điểm: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Tỷ lệ % đúng:</p>
+                            </div>
+                            <div class='QuestionResultPanelContent_Top_Right'>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                            </div>
+                        </div>
+                        <div class='QuestionResultPanelContent_Middle'>
+                            <table class='QuestionResultPanelContent_Middle_Table'>
+                                <tr>
+                                    <td class='QuesResultFirstRow text-center' style='width:7%'>STT</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:35%'>Tên câu hỏi</td> 
+                                    <td class='QuesResultFirstRow text-center' style='width:20%'>Loại câu</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:15%'>Kết quả</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:15%'>Xem lại</td>
+                                </tr>
+                                <tr>
+                                    <td class='QuesResultRow text-center' style='width:7%'></td>
+                                    <td class='QuesResultRow' style='width:35%'></td> 
+                                    <td class='QuesResultRow text-center' style='width:20%'></td>
+                                    <td class='QuesResultRow text-center' style='width:15%'></td>
+                                    <td class='QuesResultRow text-center' style='width:15%'></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class='QuestionResultPanelContent_Bottom' style='cursor: pointer;'>Đồng ý
+                        </div>
+                    </div>
+                </div>
+                <!-- End result Panel -->
+                <!-- View question panel -->
+                    <div id='ViewQuestionPanel' class='DraggablePanel'>
+                        <div class='ViewQuestionPanel_Header'>
+                            <img class='QuestionResultPanelHeader_btnClose' src='images/btnClose.png'>
+                        </div>
+                        <div class='ViewQuestionPanel_Content'>
+                             <div class='ViewQuestionPanel_Content_Top'></div>
+                            <div class='ViewQuestionPanel_Content_Bottom'>
+                                <div class='ViewQuestionPanel_Content_Bottom_AnswerList' style='width: 100%; height: 100%;'>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!-- End view question panel -->
+                <!-- Result Panel No Score -->
+                <div id='QuestionResultPanel_NoScore' class='DraggablePanel'>
+                    <div class='QuestionResultPanelHeader_NoScore'>
+                        <p class='QuestionResultPanelHeader_Content'>Thông báo</p>
+                        <img class='QuestionResultPanelHeader_btnClose' src='images/btnClose.png'>
+                    </div>
+                    <div class='QuestionResultPanelContent_NoScore'>
+                        <div class='QuestionResultPanelContent_Top_NoScore'>
+                            <div class='QuestionResultPanelContent_Top_Left_NoScore'>
+                                <p class='QuestionResultPanelContent_Top_Text'> Nhóm câu hỏi: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Tổng số câu: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Số câu đúng: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Số điểm / Tổng điểm: </p>
+                                <p class='QuestionResultPanelContent_Top_Text'> Tỷ lệ % đúng: </p>
+                            </div>
+                            <div class='QuestionResultPanelContent_Top_Right_NoScore'>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                                <p class='QuestionResultPanelContent_Top_Text'></p>
+                            </div>
+                        </div>
+                        <div class='QuestionResultPanelContent_Middle_NoScore'> Đỗ roài </div>
+                        <div class='QuestionResultPanelContent_Bottom_NoScore_Left' style='cursor: pointer;'>Xem lại</div>
+                        <div class='QuestionResultPanelContent_Bottom_NoScore_Right' style='cursor: pointer;'>Tiếp tục</div>
+                    </div>
+                </div>
+                <!-- End result Panel No Score -->
+                <!-- List question panel No Score -->
+                    <div id='ListQuestionPanel_NoScore' class='DraggablePanel'>
+                        <div class='QuestionResultPanelHeader_NoScore'>
+                            <img class='QuestionResultPanelHeader_btnClose' src='images/btnClose.png'>
+                    </div>
+                        <div class='QuestionResultPanelContent_NoScore'>
+                            <table class='QuestionResultPanelContent_Middle_Table'>
+                                <tr>
+                                    <td class='QuesResultFirstRow text-center' style='width:7%'>STT</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:35%'>Tên câu hỏi</td> 
+                                    <td class='QuesResultFirstRow text-center' style='width:20%'>Loại câu</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:15%'>Kết quả</td>
+                                    <td class='QuesResultFirstRow text-center' style='width:15%'>Xem lại</td>
+                                </tr>
+                                <tr>
+                                    <td class='QuesResultRow text-center' style='width:7%'></td>
+                                    <td class='QuesResultRow' style='width:35%'></td> 
+                                    <td class='QuesResultRow text-center' style='width:20%'></td>
+                                    <td class='QuesResultRow text-center' style='width:15%'></td>
+                                    <td class='QuesResultRow text-center' style='width:15%'></td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+                <!-- End list question panel No Score -->
+<div id='CELPage_6' jumpid='6'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_6_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='4.8' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='4.8' class='AudioDemonstration' src='Data/93a85b8d-01ae-4839-a90b-77de7ce41593.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_6'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,88.5 72,136.5 96.5,136.5 195.5,74.5 z' transform='translate(0,661), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,60.667 L11.83333,60.667 177.00468,9.24999000000003 94.50251,0 z' transform='translate(227,728), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M132.5,0 L91.75,35 0,35 z' transform='translate(741,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M41.75,0 L0,81.375 202.5,81.375 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M38.1667,0 L0,39.50032 0,152.83483 187.9986,152.83483 z' transform='translate(0,646), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,0 L136.667,0 136.667,64.167 z' transform='translate(1142,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,183.33333 199.75,257.25048 z' transform='translate(0,542), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='0.5'>
+<path d='M0,0 L70.1669699999999,34.49967 394.83397,34.49967 394.83397,14.49953 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,47.49965 L463.4996,47.49965 293.166,0 z' transform='translate(285,753), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_6_1' ></div>
+</div>
+<div id = 'CTextFrame_0_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 18.75%;  height: 12.1111111111111%;left: 6.88244047619049%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='12.1111111111111' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_0_0_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_0_0_sp00" class="resizeText" size = "34" style =" font-size: 34px;font-family:'Times_New_Roman';  color: #EE7D30;font-weight: bold; ">GVTH: Hồ Thiện Nhân</span>
+</p>
+<p id = "CTextFrame_0_0_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_0_0_sp10" class="resizeText" size = "34" style =" font-size: 34px;font-family:'Times_New_Roman';  color: #EE7D30;font-weight: bold; ">Đơn vị: Trường PTDTBT THCS Hướng Phùng, Hướng Hóa, Quảng Trị</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+<div id='CELPage_1' jumpid='1'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_1_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='0.320000000000002' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='0.320000000000002' class='AudioDemonstration' src='Data/ADesmons_637696745513359402.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_1'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,158.16667 130.219,244.24952 176.9689,244.24952 353.2189,131.99974 z' transform='translate(0,555), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,104.81141 L23.51602,104.81141 303.91172,17.56191 162.01582,0 z' transform='translate(267,684), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M97.625,36 L139.5,0 0,35.625 z' transform='translate(736,760), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.5'>
+<path d='M0,116.77133 L290.062,116.77133 59.3119999999999,0 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.5'>
+<path d='M557.375,454.5 L0,454.5 0,118.5 111.375,0 z' transform='translate(0,467), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M186.5,0.5 L186.5,93.5 0,0 z' transform='translate(1093,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,362.375 391.25,510.375 z' transform='translate(0,283), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='1'>
+<path d='M0,0 L99.625,50.5 557.25,50.5 557.25,19.875 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M386.375,0 L606,118.75 0,119 z' transform='translate(327,714), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_1_1' ></div>
+</div>
+<div id = 'CTextFrame_1_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.125%; top: 6.10119047619048%;  height: 6.81547619047618%;left: 10.3794642857143%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.125' hFrame='6.81547619047618' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_1_0_Paragraph_0" style = "text-align:center;">
+<span id = "CTextFrame_1_0_sp00" class="resizeText" size = "38" style =" font-size: 38px;font-family:'Times_New_Roman';  color: #FF0000;">KIẾN THỨC ĐÃ HỌC</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_1_1' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.125%; top: 13.3916040100251%;  height: 37.4827694235589%;left: 8.50805398913954%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.125' hFrame='37.4827694235589' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_1_1_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp00" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-weight: bold; ">1. Nhân đơn thức với đa thức</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp10" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-weight: bold; ">2. Nhân đa thức với đa thức</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp20" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-weight: bold; ">3. Những hằng đẳng thức đáng nhớ</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp30" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-weight: bold; ">4. </span><span id = "CTextFrame_1_1_sp31" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-weight: bold; ">Phân tích đa thức thành nhân tử</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_4" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp40" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-weight: bold; ">Các phương pháp phân tích đa thức thành nhân tử ta đã học là:</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_5" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp50" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-weight: bold; ">+Phân tích đa thức thành nhân tử bằng phương pháp đặt nhân tử chung</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_6" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp60" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-weight: bold; ">+Phân tích đa thức thành nhân tử bằng phương pháp dùng hằng đẳng thức</span>
+</p>
+<p id = "CTextFrame_1_1_Paragraph_7" style = "text-align:justify;">
+<span id = "CTextFrame_1_1_sp70" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-weight: bold; ">+Phân tích đa thức thành nhân tử bằng phương pháp nhóm các hạng tử </span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_1_2' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 77.1937003968254%; top: 51.5791431704261%;  height: 11.625%;left: 10.2434308427318%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '77.1937003968254' hFrame='11.625' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_1_2_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_1_2_sp00" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">? Phân</span><span id = "CTextFrame_1_2_sp01" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;"> tích đa thức sau thành nhân tử</span><span id = "CTextFrame_1_2_sp02" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;"> </span>
+</p>
+<p id = "CTextFrame_1_2_Paragraph_1" style = "text-align:justify;">
+<span class= 'resizeText' size = '24' style=' color: #000000; background-color: transparent; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_2_sp11" class="resizeText" size = "32" style =" font-size: 32px;font-family:'VNI-Times'; color: #000000;">+4x+2-2</span><span class= 'resizeText' size = '24' style=' color: #000000; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_2_sp13" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Calibri'; color: #000000;"></span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_1_3' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 80.9151785714286%; top: 63.98515820802%;  height: 11.625%;left: 10.1112644893484%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '80.9151785714286' hFrame='11.625' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_1_3_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_1_3_sp00" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;font-style: italic; font-weight: bold; text-decoration: underline; ">Giải</span>
+</p>
+<p id = "CTextFrame_1_3_Paragraph_1" style = "text-align:justify;">
+<span class= 'resizeText' size = '24' style=' color: #000000; background-color: transparent; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp11" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">+4x+2-2</span><span class= 'resizeText' size = '24' style=' color: #000000; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp13" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">=</span><span class= 'resizeText' size = '24' style=' color: #000000; background-color: transparent; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2(x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp15" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">+2x+1-</span><span class= 'resizeText' size = '24' style=' color: #000000; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp17" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">) =2[(</span><span class= 'resizeText' size = '24' style=' color: #000000; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+(x+1)
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp19" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">-</span><span class= 'resizeText' size = '24' style=' color: #000000; font-family: Times; font-size: 24px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '24' style=' color: #000000; font-family:Times New Roman;font-size: 24px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_1_3_sp111" class="resizeText" size = "32" style =" font-size: 32px;font-family:'Times_New_Roman';  color: #000000;">]=2(x+1-y)(x+1+y)</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+<div id='CELPage_2' jumpid='2'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_2_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='0.560000000000002' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='0.560000000000002' class='AudioDemonstration' src='Data/ADesmons_637696745675994297.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_2'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,88.5 72,136.5 96.5,136.5 195.5,74.5 z' transform='translate(0,661), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,60.667 L11.83333,60.667 177.00468,9.24999000000003 94.50251,0 z' transform='translate(227,728), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M132.5,0 L91.75,35 0,35 z' transform='translate(741,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M41.75,0 L0,81.375 202.5,81.375 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M38.1667,0 L0,39.50032 0,152.83483 187.9986,152.83483 z' transform='translate(0,646), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,0 L136.667,0 136.667,64.167 z' transform='translate(1142,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,183.33333 199.75,257.25048 z' transform='translate(0,542), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='0.5'>
+<path d='M0,0 L70.1669699999999,34.49967 394.83397,34.49967 394.83397,14.49953 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,47.49965 L463.4996,47.49965 293.166,0 z' transform='translate(285,753), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_2_1' ></div>
+</div>
+<div id = 'CTextFrame_2_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 15.5762670565302%;  height: 17.5438596491229%;left: 7.12828077137288%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='17.5438596491229' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_2_0_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_2_0_sp00" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime'; color: #FF0000;font-style: italic; font-weight: bold; text-decoration: underline; ">1. VÝ dô</span>
+</p>
+<p id = "CTextFrame_2_0_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_2_0_sp10" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime';  color: #000000;font-style: italic; font-weight: bold; ">a. VÝ dô 1</span>
+</p>
+<p id = "CTextFrame_2_0_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_2_0_sp20" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime';  color: #000000;">   Ph&copy;n tÝch &reg;a thøc</span><span id = "CTextFrame_2_0_sp21" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime';  color: #000000;font-weight: bold; "> </span><span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+5x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+3
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_0_sp23" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'Times_New_Roman';  color: #000000;font-weight: bold; ">+10</span><span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+y+5x
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; font-weight: bold; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_0_sp25" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime';  color: #000000;font-weight: bold; "> </span><span id = "CTextFrame_2_0_sp26" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'.VnTime';  color: #000000;">thµnh nh&copy;n tö.</span>
+</p>
+<p id = "CTextFrame_2_0_Paragraph_3" style = "text-align:justify;">
+<span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+5x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+3
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_0_sp31" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">+10</span><span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+y+5x
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_0_sp33" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">=5x(</span><span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
++2xy+
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_0_sp35" class="resizeText" size = "24.6666666666667" style =" font-size: 24.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">)=5x</span><span class= 'resizeText' size = '18.5' style=' color: #000000; font-family: Times; font-size: 18.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+(x+y)
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '18.5' style=' color: #000000; font-family:Times New Roman;font-size: 18.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_2_1' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 33.937969924812%;  height: 19.6052631578948%;left: 7.46984649122806%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='19.6052631578948' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_2_1_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_2_1_sp00" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'.VnTime';  color: #000000;font-style: italic; font-weight: bold; ">b.VÝ dô 2</span><span id = "CTextFrame_2_1_sp01" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'.VnTime';  color: #000000;">  </span>
+</p>
+<p id = "CTextFrame_2_1_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_2_1_sp10" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'.VnTime';  color: #000000;">Ph&copy;n tÝch &reg;a thøc</span><span class= 'resizeText' size = '20.5' style=' color: #000000; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+ 
+</mi>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+-2xy+
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; font-weight: bold; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_1_sp12" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #000000;font-weight: bold; ">-9</span><span id = "CTextFrame_2_1_sp13" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'.VnTime';  color: #000000;"> thµnh nh&copy;n tö </span>
+</p>
+<p id = "CTextFrame_2_1_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_2_1_sp20" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;font-style: italic; font-weight: bold; text-decoration: underline; ">Giải</span>
+</p>
+<p id = "CTextFrame_2_1_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_2_1_sp30" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #1F2327;">(</span><span class= 'resizeText' size = '20.5' style=' color: #000000; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+-2xy+
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_1_sp32" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">)-9=</span><span class= 'resizeText' size = '20.5' style=' color: #000000; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+(x-y)
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_1_sp34" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">-</span><span class= 'resizeText' size = '20.5' style=' color: #000000; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+3
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #000000; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_1_sp36" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #000000;">=(x-y-3)(x-y+3)</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_2_2' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 83.2209429824561%; top: 55.703085839599%;  height: 11.4166666666667%;left: 7.64579090956556%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '83.2209429824561' hFrame='11.4166666666667' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_2_2_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_2_2_sp00" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'.VnTime';  color: #000000;font-style: italic; font-weight: bold; ">? 1 Ph&copy;n tÝch &reg;a thøc </span><span id = "CTextFrame_2_2_sp01" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">2</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+3
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y-2x
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+3
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp03" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-4x</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp05" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-2xy</span><span id = "CTextFrame_2_2_sp06" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;"> </span><span id = "CTextFrame_2_2_sp07" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'.VnTime';  color: #000000;font-style: italic; font-weight: bold; ">thµnh nh&copy;n tö</span>
+</p>
+<p id = "CTextFrame_2_2_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_2_2_sp10" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">2xy( </span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+-
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp12" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-2</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y
+</mi>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp14" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-1)=2xy[</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp16" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-(</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
++2y+1
+</mi>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp18" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">)]=2xy[</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp110" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">-</span><span class= 'resizeText' size = '22' style=' color: #000000; font-family: Times; font-size: 22px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+(y+1)
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22' style=' color: #000000; font-family:Times New Roman;font-size: 22px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_2_2_sp112" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000;">]=2xy(x+y+1)(x-y-1)</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_2_3' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.467653508772%; top: 69.0339129072682%;  height: 19.5416666666667%;left: 8.00952576754386%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.467653508772' hFrame='19.5416666666667' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_2_3_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_2_3_sp00" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;font-style: italic; font-weight: bold; ">C</span><span id = "CTextFrame_2_3_sp01" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;font-style: italic; font-weight: bold; ">ác phương pháp </span><span id = "CTextFrame_2_3_sp02" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;font-style: italic; font-weight: bold; ">đã dùng để </span><span id = "CTextFrame_2_3_sp03" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;font-style: italic; font-weight: bold; ">phân tích đa thức trên thành nhân tử</span>
+</p>
+<p id = "CTextFrame_2_3_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_2_3_sp10" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">+Đặt nhân tử chung</span>
+</p>
+<p id = "CTextFrame_2_3_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_2_3_sp20" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">+Dùng </span><span id = "CTextFrame_2_3_sp21" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">hằ</span><span id = "CTextFrame_2_3_sp22" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">ng đẳng thức</span>
+</p>
+<p id = "CTextFrame_2_3_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_2_3_sp30" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #000000; background-color: transparent;">+Nhóm hạng tử</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_2_4' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.467653508772%; top: 3.11129385964912%;  height: 8.83333333333333%;left: 8.00952576754387%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.467653508772' hFrame='8.83333333333333' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_2_4_Paragraph_0" style = "text-align:center;">
+<span id = "CTextFrame_2_4_sp00" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;">Bài 9. </span><span id = "CTextFrame_2_4_sp01" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;font-weight: bold; ">PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG CÁCH PHỐI HỢP NHIỀU PHƯƠNG PHÁP</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+<div id='CELPage_4' jumpid='4'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_4_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='0.639999999999936' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='0.639999999999936' class='AudioDemonstration' src='Data/ADesmons_637696745826681144.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_4'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,88.5 72,136.5 96.5,136.5 195.5,74.5 z' transform='translate(0,661), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,60.667 L11.83333,60.667 177.00468,9.24999000000003 94.50251,0 z' transform='translate(227,728), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M132.5,0 L91.75,35 0,35 z' transform='translate(741,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M41.75,0 L0,81.375 202.5,81.375 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M38.1667,0 L0,39.50032 0,152.83483 187.9986,152.83483 z' transform='translate(0,646), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,0 L136.667,0 136.667,64.167 z' transform='translate(1142,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,183.33333 199.75,257.25048 z' transform='translate(0,542), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='0.5'>
+<path d='M0,0 L70.1669699999999,34.49967 394.83397,34.49967 394.83397,14.49953 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,47.49965 L463.4996,47.49965 293.166,0 z' transform='translate(285,753), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_4_1' ></div>
+</div>
+<div id = 'CTextFrame_3_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 8.26587301587301%;  height: 26.5014619883041%;left: 7.60416666666668%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='26.5014619883041' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_3_0_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_3_0_sp00" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #FF0000;font-style: italic; font-weight: bold; text-decoration: underline; ">2. Áp dụng</span>
+</p>
+<p id = "CTextFrame_3_0_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_3_0_sp10" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">?2. a. Tính </span><span id = "CTextFrame_3_0_sp11" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">nhanh</span><span id = "CTextFrame_3_0_sp12" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> giá trị biểu thức </span>
+</p>
+<p id = "CTextFrame_3_0_Paragraph_2" style = "text-align:justify;">
+<span class= 'resizeText' size = '23' style=' color: #052F61; font-family: Times; font-size: 23px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
++2x+1-
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_0_sp21" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> tại x=94,5 và y=4,5</span>
+</p>
+<p id = "CTextFrame_3_0_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_3_0_sp30" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">b. Phân tích đa thức  </span><span class= 'resizeText' size = '23' style=' color: #052F61; font-family: Times; font-size: 23px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
++5x+6 
+</mi>
+<mi class= 'resizeText' size = '23' style=' color: #052F61; font-family:Times New Roman;font-size: 23px; '>
+thành nhân tử
+</mi>
+
+</math>
+</span><span id = "CTextFrame_3_0_sp32" class="resizeText" size = "30.6666666666667" style =" font-size: 30.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">  </span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_3_1' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 33.468149540518%;  height: 29.0570175438596%;left: 7.51331453634084%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='29.0570175438596' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_3_1_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_3_1_sp00" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-style: italic; font-weight: bold; text-decoration: underline; ">Giải</span>
+</p>
+<p id = "CTextFrame_3_1_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_3_1_sp10" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">a. Tính </span><span id = "CTextFrame_3_1_sp11" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">nhanh</span><span id = "CTextFrame_3_1_sp12" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> giá trị biểu thức</span>
+</p>
+<p id = "CTextFrame_3_1_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_3_1_sp20" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">Phân tích đa thức trên thành nhân tử</span>
+</p>
+<p id = "CTextFrame_3_1_Paragraph_3" style = "text-align:justify;">
+<span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
++2x+1-
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_1_sp31" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> =</span><span id = "CTextFrame_3_1_sp32" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> (</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_1_sp34" class="resizeText" size = "27.3333333333333" style =" font-size: 27.3333333333333px;font-family:'Times_New_Roman';  color: #052F61;">+2x+</span><span id = "CTextFrame_3_1_sp35" class="resizeText" size = "27.3333333333333" style =" font-size: 27.3333333333333px;font-family:'Times_New_Roman';  color: #052F61;">1)</span><span id = "CTextFrame_3_1_sp36" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> </span><span id = "CTextFrame_3_1_sp37" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">-</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_1_sp39" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Tahoma';  color: #052F61;">=</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+(x+1)
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+-
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+y
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_1_sp311" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Tahoma';  color: #052F61;">=</span><span id = "CTextFrame_3_1_sp312" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">(x+1-y)(x+1+y)</span>
+</p>
+<p id = "CTextFrame_3_1_Paragraph_4" style = "text-align:justify;">
+<span id = "CTextFrame_3_1_sp40" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">Thay giá trị x=94,5 và y=4,5 vào đa thức sau khi đa phân tích xong</span>
+</p>
+<p id = "CTextFrame_3_1_Paragraph_5" style = "text-align:justify;">
+<span id = "CTextFrame_3_1_sp50" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">(x+1-y)(x+1+y)=(94,5+1-4,5 )(94,5+1+4,5)=91.100=9100</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_3_2' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 63.4634502923977%;  height: 29.0570175438596%;left: 7.67543859649119%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='29.0570175438596' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_3_2_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_3_2_sp00" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">b. Phân tích đa thức  </span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
++5x+6 
+</mi>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+thành nhân tử
+</mi>
+
+</math>
+</span><span id = "CTextFrame_3_2_sp02" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">  </span>
+</p>
+<p id = "CTextFrame_3_2_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_3_2_sp10" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">Nhận xét: </span><span id = "CTextFrame_3_2_sp11" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">C</span><span id = "CTextFrame_3_2_sp12" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">ả ba hạng tử không có nhân tử chung, không có dạng hằng đẳng thức vì vậy chúng</span><span id = "CTextFrame_3_2_sp13" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> </span><span id = "CTextFrame_3_2_sp14" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">ta  không thể sử dụng phương pháp đặt nhân tử chung và dùng </span><span id = "CTextFrame_3_2_sp15" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">hđt</span><span id = "CTextFrame_3_2_sp16" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">. Chúng ta có thể tách hạng tử 5x thành hai hạng tử rồi nhóm: 5x=3x+2x=4x+x=6x-x=. . . . . . . . .chúng ta chọn cách hợp lí nhất:</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+ 
+</mi>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_2_sp18" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">+5x+6=</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+ 
+</mi>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_2_sp110" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">+2x+3x+6=(</span><span class= 'resizeText' size = '20.5' style=' color: #052F61; font-family: Times; font-size: 20.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+ 
+</mi>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '20.5' style=' color: #052F61; font-family:Times New Roman;font-size: 20.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_3_2_sp112" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">+2x)+(3x+6)=x(x+2)+3(x+2)</span><span id = "CTextFrame_3_2_sp113" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;"> </span><span id = "CTextFrame_3_2_sp114" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">=(x+2)(x+3)</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_3_3' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.467653508772%; top: 0.283912907268167%;  height: 8.83333333333333%;left: 7.45149005325816%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.467653508772' hFrame='8.83333333333333' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_3_3_Paragraph_0" style = "text-align:center;">
+<span id = "CTextFrame_3_3_sp00" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;">Bài 9. </span><span id = "CTextFrame_3_3_sp01" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;font-weight: bold; ">PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG CÁCH PHỐI HỢP NHIỀU PHƯƠNG PHÁP</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+<div id='CELPage_5' jumpid='5'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_5_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='0.480000000000027' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='0.480000000000027' class='AudioDemonstration' src='Data/ADesmons_637696745959685320.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_5'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,88.5 72,136.5 96.5,136.5 195.5,74.5 z' transform='translate(0,661), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,60.667 L11.83333,60.667 177.00468,9.24999000000003 94.50251,0 z' transform='translate(227,728), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M132.5,0 L91.75,35 0,35 z' transform='translate(741,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M41.75,0 L0,81.375 202.5,81.375 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M38.1667,0 L0,39.50032 0,152.83483 187.9986,152.83483 z' transform='translate(0,646), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,0 L136.667,0 136.667,64.167 z' transform='translate(1142,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,183.33333 199.75,257.25048 z' transform='translate(0,542), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='0.5'>
+<path d='M0,0 L70.1669699999999,34.49967 394.83397,34.49967 394.83397,14.49953 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,47.49965 L463.4996,47.49965 293.166,0 z' transform='translate(285,753), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_5_1' ></div>
+</div>
+<div id = 'CTextFrame_4_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 13.8392857142857%;  height: 27.4305555555556%;left: 7.53348214285714%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='27.4305555555556' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_4_0_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_4_0_sp00" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #FF0000;font-style: italic; font-weight: bold; text-decoration: underline; ">3. Bài tập</span>
+</p>
+<p id = "CTextFrame_4_0_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_4_0_sp10" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #052F61;font-style: italic; font-weight: bold; ">Tìm giá trị x, biết:</span>
+</p>
+<p id = "CTextFrame_4_0_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_4_0_sp20" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #052F61;">a. x(x-2)+x-2=0</span>
+</p>
+<p id = "CTextFrame_4_0_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_4_0_sp30" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #052F61;">b. </span><span class= 'resizeText' size = '22.5' style=' color: #052F61; font-family: Times; font-size: 22.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '22.5' style=' color: #052F61; font-family:Times New Roman;font-size: 22.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '22.5' style=' color: #052F61; font-family:Times New Roman;font-size: 22.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_4_0_sp32" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #052F61;">+5x+4=0</span>
+</p>
+<p id = "CTextFrame_4_0_Paragraph_4" style = "text-align:justify;">
+<span id = "CTextFrame_4_0_sp40" class="resizeText" size = "30" style =" font-size: 30px;font-family:'Times_New_Roman';  color: #052F61;font-style: italic; font-weight: bold; "> ( Gợi ý: Phân tích đa thức thành nhân tử rồi tìm x)</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_4_1' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 84.375%; top: 46.422619047619%;  height: 23.6666666666667%;left: 7.87863756613758%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '84.375' hFrame='23.6666666666667' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_4_1_Paragraph_0" style = "text-align:justify;">
+<span id = "CTextFrame_4_1_sp00" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;font-style: italic; font-weight: bold; text-decoration: underline; ">Hướng dẫn giải</span>
+</p>
+<p id = "CTextFrame_4_1_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_4_1_sp10" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">a</span><span id = "CTextFrame_4_1_sp11" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">. x(x-2)+x-2=</span><span id = "CTextFrame_4_1_sp12" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">(x-2)(x+1)=0 &lt;=&gt;x-2=0 hoặc x+1=0&lt;=&gt; x=2 hoặc x=-1</span>
+</p>
+<p id = "CTextFrame_4_1_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_4_1_sp20" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">b</span><span id = "CTextFrame_4_1_sp21" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">. </span><span class= 'resizeText' size = '21.5' style=' color: #052F61; font-family: Times; font-size: 21.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+
+</math>
+</span><span id = "CTextFrame_4_1_sp23" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">+5x+4=</span><span class= 'resizeText' size = '21.5' style=' color: #052F61; font-family: Times; font-size: 21.5px; '><math>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
++x+4x+4=(
+</mi>
+<msup>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+x
+</mi>
+
+</mrow>
+<mrow>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+2
+</mi>
+
+</mrow>
+
+</msup>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
++
+</mi>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+x)
+</mi>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
++
+</mi>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+(
+</mi>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+4x+
+</mi>
+<mi class= 'resizeText' size = '21.5' style=' color: #052F61; font-family:Times New Roman;font-size: 21.5px; '>
+4)=x(x+1)+4(x+1)=(x+1)(x+4)=0
+</mi>
+
+</math>
+</span>
+</p>
+<p id = "CTextFrame_4_1_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_4_1_sp30" class="resizeText" size = "28.6666666666667" style =" font-size: 28.6666666666667px;font-family:'Times_New_Roman';  color: #052F61;">&lt;=&gt; x+1=0 hoặc x+4=0 &lt;=&gt; x=-1 hoặc x=-4</span>
+</p>
+
+</div>
+
+</div>
+
+
+<div id = 'CTextFrame_4_2' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 78.467653508772%; top: 0.283912907268167%;  height: 8.83333333333333%;left: 7.45149005325816%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '78.467653508772' hFrame='8.83333333333333' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_4_2_Paragraph_0" style = "text-align:center;">
+<span id = "CTextFrame_4_2_sp00" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;">Bài 9. </span><span id = "CTextFrame_4_2_sp01" class="resizeText" size = "29.3333333333333" style =" font-size: 29.3333333333333px;font-family:'Times_New_Roman';  color: #FF0000; background-color: transparent;font-weight: bold; ">PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ BẰNG CÁCH PHỐI HỢP NHIỀU PHƯƠNG PHÁP</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+<div id='CELPage_11' jumpid='11'  class='CELPage hidden' style="height:100%; width:100%; top:0;left:0; position:absolute; "> 
+
+<div id='CELPage_11_Demonstration' class='hidden' style ="height:0px; width:0px; position: absolute; top:0;left:0"> 
+    <video startTimeDemontration='0' class='VideoDemonstration' src='' silent='False' type = 'video/mp4'></video>
+    <audio startTimeDemontration='0' class='AudioDemonstration' src='Data/ADesmons_637696746142216960.mp3' silent='False' type='audio/mpeg'> </audio>
+</div><div id= '_b59879932ead7392b5c8025e7dd3ede9_CELPage_11'>
+<svg height='800' width='1280'>
+<g style= 'position:absolute ; z-index= 3' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,0 L0,88.5 72,136.5 96.5,136.5 195.5,74.5 z' transform='translate(0,661), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 4' Fill='#2a92ca' fill-opacity='1'>
+<path d='M0,60.667 L11.83333,60.667 177.00468,9.24999000000003 94.50251,0 z' transform='translate(227,728), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 5' Fill='#2a92ca' fill-opacity='1'>
+<path d='M132.5,0 L91.75,35 0,35 z' transform='translate(741,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M41.75,0 L0,81.375 202.5,81.375 z' transform='translate(805,717), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 8' Fill='#2a92ca' fill-opacity='0.7'>
+<path d='M38.1667,0 L0,39.50032 0,152.83483 187.9986,152.83483 z' transform='translate(0,646), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 1' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,0 L136.667,0 136.667,64.167 z' transform='translate(1142,0), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 2' Fill='#85cee1' fill-opacity='0.3'>
+<path d='M0,0 L0,183.33333 199.75,257.25048 z' transform='translate(0,542), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 6' Fill='#85cee1' fill-opacity='0.5'>
+<path d='M0,0 L70.1669699999999,34.49967 394.83397,34.49967 394.83397,14.49953 z' transform='translate(883,764), scale(1,1)' ></g>
+<g style= 'position:absolute ; z-index= 7' Fill='#85cee1' fill-opacity='0.8'>
+<path d='M0,47.49965 L463.4996,47.49965 293.166,0 z' transform='translate(285,753), scale(1,1)' ></g>
+</svg>
+<div class='_b59879932ead7392b5c8025e7dd3ede9_CELPage_11_1' ></div>
+</div>
+<div id = 'CTextFrame_5_0' class ='resizeFrame' style='word-wrap:break-word; position: absolute; width: 75.234375%; top: 12.2440476190476%;  height: 57.1309523809524%;left: 12.8757440476191%;'>
+<svg class = 'svgFrame' borderwidth = '0' wFrame = '75.234375' hFrame='57.1309523809524' style='position: absolute; width: 100%; height: 100%;' strokedash =''  bordercolor= 'transparent'; backgroundcolor= 'transparent'>
+<path style='position: absolute; width: 100%; height: 100%;'/>
+</svg>
+<div style='word-wrap:break-word; position: absolute;width: 100%; height: 100%;'>
+<p id = "CTextFrame_5_0_Paragraph_0" style = "text-align:center;">
+<span id = "CTextFrame_5_0_sp00" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #FF0000;font-weight: bold; text-decoration: underline; ">4. Cũng cố</span>
+</p>
+<p id = "CTextFrame_5_0_Paragraph_1" style = "text-align:justify;">
+<span id = "CTextFrame_5_0_sp10" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">- Nắm cách phân tích đa thức thành nhân tử bằng phương pháp đặt nhân tử </span><span id = "CTextFrame_5_0_sp11" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">chu</span><span id = "CTextFrame_5_0_sp12" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">ng ( có nhân tử </span><span id = "CTextFrame_5_0_sp13" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">chu</span><span id = "CTextFrame_5_0_sp14" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">ng).</span>
+</p>
+<p id = "CTextFrame_5_0_Paragraph_2" style = "text-align:justify;">
+<span id = "CTextFrame_5_0_sp20" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">- Phân tích đa thức thành nhân tử bằng cách dùng hằng đẳng thức</span>
+</p>
+<p id = "CTextFrame_5_0_Paragraph_3" style = "text-align:justify;">
+<span id = "CTextFrame_5_0_sp30" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">-Phân tích đa thức thành nhân tử bằng cách nhóm các hạng tử</span>
+</p>
+<p id = "CTextFrame_5_0_Paragraph_4" style = "text-align:justify;">
+<span id = "CTextFrame_5_0_sp40" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;">-Phân tích đa thức thành nhân tử bằng cách phối hợp các phương pháp trên</span>
+</p>
+<p id = "CTextFrame_5_0_Paragraph_5" style = "text-align:center;">
+<span id = "CTextFrame_5_0_sp50" class="resizeText" size = "38.6666666666667" style =" font-size: 38.6666666666667px;font-family:'Times_New_Roman';  color: #1F4D7A;font-weight: bold; ">Chúc các em học tốt.</span>
+</p>
+
+</div>
+
+</div>
+
+
+ </div> 
+
+            <div style='position: absolute; top: 0.5%;right: 0.5%; width: 15%;height: 6%; z-index: 490000'><img id='wtmImage' style='position: absolute;top: 0;right: 0;height: 100%;' src=''></div>
+            </div>
+            <!-- End left main content -->
+            <!-- Begin right main content -->
+            <div id='rightMainContent'>
+                <div id='mainRightTop'>
+                    <div id='mainTittle'>
+                        <p id='mainTittleContent'>PHÂN TÍCH ĐA THỨC THÀNH NHÂN TỬ</p>
+                    </div>
+                    <div id='mainRightTopBotLeft'>
+                        <img id='mainRightTopBotLeft' src='images\20210418_060104.jpg'>
+                        <video id='mainRightTopBotLeft_Video' style='visibility: hidden' src=''>
+                    </div>
+                    <div id='mainRightTopBotRight'>
+                        <table id='tableRightTop' style='width:100%; height: 100%;'>
+                            <tr class='mainRightTopBotRight'><td class='seo-bold'>Giáo viên:</td></tr>
+                            <tr class='mainRightTopBotRight'><td class='seo-light'>Hồ Thiện Nhân</td></tr>
+                            <tr class='mainRightTopBotRight'><td class='seo-bold'>Môn học:</td></tr>
+                            <tr class='mainRightTopBotRight'><td class='seo-light'>Đại số 8</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div id='mainRightBot'>
+                    <div id='mainRightBotHeader'>
+                        <div id='mainRightBotHeaderLeft' class='mainRightBotHeaderActive'><p id='mainRightBotHeaderContent'>DÀN BÀI</p></div>
+                        <div id='mainRightBotHeaderRight'><p id='mainRightBotHeaderContentRight'>XEM TRƯỚC</p></div>
+                    </div>
+                    <div id='mainRightBotPageView'>
+                        <div class='mainRightBotPageList'>
+                            <div id='tblPageList' style='width:94%; height: 100%;'>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_6'>Mở đầu</div>
+                            <div class='pageNameRight'>00:19</div></div>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_1'>Kiến thức đã học</div>
+                            <div class='pageNameRight'>02:37</div></div>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_2'>1. Ví dụ</div>
+                            <div class='pageNameRight'>04:40</div></div>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_4'>2. Áp dụng</div>
+                            <div class='pageNameRight'>03:26</div></div>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_5'>3. Bài tập</div>
+                            <div class='pageNameRight'>01:58</div></div>
+                            <div class='pageName'><div class='pageNameLeft' id='RightMenuCELPage_11'>4. Cũng cố</div>
+                            <div class='pageNameRight'>01:13</div></div>
+                            </div>
+                        </div>
+                        <div class='mainRightBotPageList'>
+                            <div id='tblPageListThumb' style='width:94%; height: 100%;'>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_6.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_6'>Mở đầu</div>
+                                <div class='pageNameRightThumb'>00:19</div>                            </div>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_1.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_1'>Kiến thức đã học</div>
+                                <div class='pageNameRightThumb'>02:37</div>                            </div>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_2.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_2'>1. Ví dụ</div>
+                                <div class='pageNameRightThumb'>04:40</div>                            </div>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_4.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_4'>2. Áp dụng</div>
+                                <div class='pageNameRightThumb'>03:26</div>                            </div>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_5.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_5'>3. Bài tập</div>
+                                <div class='pageNameRightThumb'>01:58</div>                            </div>
+                            <div class='pageNameThumb'>
+                                <div class='pageNameThumbIMG' style="background-size: 100% 100%; background-position: center; background-image: url('Data/ThumbImage/CELPage_11.png') "></div>
+                                <div class='pageNameLeftThumb' id='RightMenuTCELPage_11'>4. Cũng cố</div>
+                                <div class='pageNameRightThumb'>01:13</div>                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End right main content -->
+
+            <!-- Functions area -->
+            <div id='mainBottom'>
+                <div id='mainBottomFull'>
+                    <div id='mainBottomBtnPV' data-function='back' class='clear-nextback'></div>
+                    <div id='mainBottomBtnPlayPause' class='btnPlay' data-function='stop'></div>
+                    <div id='mainBottomBtnPause' class='btnPlay' data-function='play' style='display: none'></div>
+                    <div id='mainBottomBtnNext' data-function='next' class='clear-nextback'></div>
+                    <div id='mainBottomSlide'>
+                        <div id='mainBottomTraySlideTimeline'>
+                            <div class='Timeline'>
+                                <div id='slider_Cpage_0'></div>
+                            </div>
+                        </div>
+                        <div id='slider-value' class='hidden'></div>
+                    </div>
+                    <div id='mainBottomBtnVolumn'></div>
+                    <div id='mainBottomBtnVolumnMute' style='display: none;'></div>
+                    <div id='mainBottomVolumnSlide'>
+                        <div id='mainBottomVolumnSlideTray'></div>
+                    </div>
+                    <div id='mainBottomBtnReplay'></div>
+                    <div id='mainBottomBtnZoom'></div>
+                    <div id='mainBottomBtnPVDisable'></div>
+                    <div id='mainBottomBtnPlayPauseDisable'></div>
+                    <div id='mainBottomBtnNextDisable'></div>
+                    <div id='mainBottomSlideDisable'>
+                        <div id='mainBottomToggleSlide'></div>
+                        <div id='mainBottomTraySlide'></div>
+                    </div>
+                    <div id='mainBottomBtnVolumnDisable'></div>
+                    <div id='mainBottomVolumnSlideDisable'>
+                        <div id='mainBottomVolumnSlideTray'></div>
+                    </div>
+                    <div id='mainBottomBtnReplayDisable'></div>
+                    <div id='mainBottomBtnZoomDisable'></div>
+                </div>
+            </div>
+            <!-- End Functions area -->
+        </div>
+    </div>
+<div style='position:absolute; top:0;left:0;width:100%;height:100%; z-index:500000;background-color:white'><div id='loadingPage' style='position:absolute; top:0;left:0;width:100%;height:100%;'></div></div>
+<div style='display: none'><audio id='BGAudio'></audio></div>
+</body>
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript'>var everythingLoaded = setInterval(function() {if (/loaded|complete/.test(document.readyState)) {clearInterval(everythingLoaded);init();}}, 10);</script>
+    <script type='text/javascript' src='js/mainJS.js'></script>
+    <script type='text/javascript' src='js/saveSvgAsPng.js'></script>
+    <script type='text/javascript' src='js/jsAnimate.js'></script>
+    <script type='text/javascript' src='js/jsAnimateObject.js'></script>
+    <script type='text/javascript' src='js/jsTrangDuLieuThuong.js'></script>
+    <script type='text/javascript' src='js/questionjs.js'></script>
+    <script type='text/javascript' async src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+</html>
